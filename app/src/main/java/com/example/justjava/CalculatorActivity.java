@@ -6,26 +6,32 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class CalculatorActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class CalculatorActivity extends BaseActivity {
+
+    @BindView(R.id.quantity)
     TextView quantityTextView;
+    @BindView(R.id.price)
     TextView priceTextView;
-    int quantity = 0;
+
+    private int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        quantityTextView = (TextView) findViewById(R.id.quantity);
-        priceTextView = (TextView) findViewById(R.id.price);
+        ButterKnife.bind(this);
+
     }
 
-    private void increase(View v) {
+    public void increase(View v) {
         quantity++;
         display();
     }
 
-    private void decrease(View v) {
+    public void decrease(View v) {
         quantity--;
         display();
     }
@@ -38,7 +44,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
     private void display() {
-        quantityTextView.setText(quantity);
+        quantityTextView.setText(quantity+"");
 
     }
 

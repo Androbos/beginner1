@@ -20,8 +20,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="increase"
-            android:text="+" />
+            android:onClick="decrease"
+            android:text="-" />
 
         <TextView
             android:id="@+id/quantity"
@@ -36,8 +36,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="decrease"
-            android:text="-" />
+            android:onClick="increase"
+            android:text="+" />
+
+
     </LinearLayout>
 
     <TextView
