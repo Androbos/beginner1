@@ -1,5 +1,6 @@
 package com.example.justjava;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -39,7 +40,7 @@ public class CalculatorActivity extends BaseActivity {
 
         menu.add("history").setTitle("history")
                 .setIcon(new IconDrawable(this, FontAwesomeIcons.fa_history)
-                        .colorRes(android.R.color.black).actionBarSize())
+                        .colorRes(android.R.color.white).actionBarSize())
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         return true;
@@ -50,7 +51,8 @@ public class CalculatorActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         String title = item.getTitle().toString();
         if (title.equals("history")) {
-
+            Intent intent = new Intent(CalculatorActivity.this, HistoryActivity.class);
+            startActivity(intent);
         } else {
             finish();
         }
@@ -69,13 +71,19 @@ public class CalculatorActivity extends BaseActivity {
 
     //button
     public void increase(View v) {
-        quantity++;
-        display();
+        if (quantity < 5) {
+            quantity++;
+            display();
+        }
+
     }
 
     public void decrease(View v) {
-        quantity--;
-        display();
+        if (quantity > 0) {
+            quantity--;
+            display();
+        }
+
     }
 
     public void orderonClick(View v) {
@@ -100,7 +108,7 @@ public class CalculatorActivity extends BaseActivity {
         priceTextView.setText(price + "\nThank your for order");
         HistoryModel historyModel = new HistoryModel();
         historyModel.setQuantity(quantity);
-        historyModel.setPrice("Rp "+price);
+        historyModel.setPrice(price);
         historyModel.save();
 
         String coffee = "";
@@ -110,8 +118,6 @@ public class CalculatorActivity extends BaseActivity {
         fontawesome.setText(coffee);
 
 
-        List<HistoryModel> list = HistoryModel.find(HistoryModel.class, null, null);
-        Log.wtf("test_", list.size() + "");
     }
 
 
