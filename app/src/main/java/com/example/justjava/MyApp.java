@@ -25,10 +25,10 @@ public class MyApp extends SugarApp {
     }
 
 
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-        SugarContext.terminate();
-    }
+//    @Override
+//    public void onTerminate() {
+//        super.onTerminate();
+//        SugarContext.terminate();
+//    }
 
 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.justjava.model.CalculatorModel;
+import com.example.justjava.model.HistoryModel;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.joanzapata.iconify.widget.IconTextView;
@@ -23,6 +24,7 @@ public class CalculatorActivity extends BaseActivity {
 
     @BindView(R.id.quantity)
     TextView quantityTextView;
+
     @BindView(R.id.price)
     TextView priceTextView;
 
@@ -87,6 +89,7 @@ public class CalculatorActivity extends BaseActivity {
         price();
     }
 
+
     private void price() {
         int p = quantity * 5;
         price = "$" + p;
@@ -95,10 +98,10 @@ public class CalculatorActivity extends BaseActivity {
 
     private void showOrder() {
         priceTextView.setText(price + "\nThank your for order");
-        CalculatorModel calculatorModel = new CalculatorModel();
-        calculatorModel.setQuantity(quantity);
-        calculatorModel.setPrice(priceTextView.getText().toString());
-        calculatorModel.save();
+        HistoryModel historyModel = new HistoryModel();
+        historyModel.setQuantity(quantity);
+        historyModel.setPrice("Rp "+price);
+        historyModel.save();
 
         String coffee = "";
         for (int i = 0; i < quantity; i++) {
@@ -107,7 +110,7 @@ public class CalculatorActivity extends BaseActivity {
         fontawesome.setText(coffee);
 
 
-        List<CalculatorModel> list = CalculatorModel.find(CalculatorModel.class, null, null);
+        List<HistoryModel> list = HistoryModel.find(HistoryModel.class, null, null);
         Log.wtf("test_", list.size() + "");
     }
 
