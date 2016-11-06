@@ -9,15 +9,12 @@ import com.orm.SugarRecord;
 public class HistoryModel extends SugarRecord {
 
     private int quantity;
+    private String name;
+    private String menu;
     private String price;
 
     public HistoryModel() {
 
-    }
-
-    public HistoryModel(int quantity, String price) {
-        this.quantity = quantity;
-        this.price = price;
     }
 
     public int getQuantity() {
@@ -34,5 +31,21 @@ public class HistoryModel extends SugarRecord {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 }

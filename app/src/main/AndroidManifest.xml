@@ -28,10 +28,14 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!--intent filter itu untuk berarti, activity main akan run saat launcher-->
         </activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".CalculatorActivity" />
-        <activity android:name=".BirthdayActivity" />
+        <activity android:name=".HistoryActivity" />   <!--mendaftarkan historyactivity-->
+        <activity android:name=".CalculatorActivity" /> <!--mendaftarkan calculatoractivity-->
+        <activity android:name=".BirthdayActivity" /><!--mendaftarkan birthdayactivity-->
+
+
+
 
     </application>
 

@@ -10,12 +10,39 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/rUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkboxWhipped"
+            android:text="Whipped Cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/checkboxChoco"
+            android:text="Chocolate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
             android:text="quantity"
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,13 +74,12 @@
 
         </LinearLayout>
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:text="price"
-            android:textSize="24sp" />
+            android:layout_marginTop="8dp"
+            android:onClick="orderonClick"
+            android:text="order" />
 
         <TextView
             android:id="@+id/price"
@@ -64,12 +90,6 @@
             android:textColor="@android:color/black"
             android:textSize="24sp" />
 
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="orderonClick"
-            android:text="order" />
 
         <com.joanzapata.iconify.widget.IconTextView
             android:id="@+id/fontawesome"
